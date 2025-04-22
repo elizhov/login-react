@@ -5,6 +5,7 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
 
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
@@ -21,6 +22,7 @@ const Login = () => {
 
         if (usernameResult === true && emailResult === true && passwordResult === true) {
             console.log("Login successful!");
+            setSuccessMessage("Login successful!");
         }
     };
 
@@ -51,6 +53,7 @@ const Login = () => {
             {passwordError && <p className="error">{passwordError}</p>}
 
             <button onClick={handleLogin}>Login</button>
+            {successMessage && <p className="success">{successMessage}</p>}
         </div>
     );
 };
